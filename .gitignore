@@ -40,6 +40,10 @@ TestResult.xml
 [Rr]eleasePS/
 dlldata.c
 
+
+# Custom ones
+/Binaries/data/Sounds
+
 # DNX
 project.lock.json
 artifacts/
