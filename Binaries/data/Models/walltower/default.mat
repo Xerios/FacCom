@@ -1,0 +1,9 @@
+{
+  "technique": "DefaultInstanced",
+  "mode": 1,
+  "textures": [
+    "default.JPG"
+  ],
+  "color": "1, 1, 1, 1",
+  "delta": 0
+}

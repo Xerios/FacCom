@@ -1,0 +1,10 @@
+{
+  "technique": "Mineral",
+  "mode": 1,
+  "textures": [
+    "test.jpg",
+    "reflection.png"
+  ],
+  "color": "1, 0, 1, 1",
+  "delta": 0
+}

@@ -1,0 +1,138 @@
+<head>
+<style>
+body{ 
+    cursor: default;
+    font-family: Helvetica, "MS Trebuchet", sans-serif;
+    color: white;
+    
+    background:transparent; 
+    margin:0px;
+    padding:0px;
+}
+header{
+    display:block;
+    float:none;
+    padding:6px;
+}
+block{
+    display:block;
+    background:#444;
+    padding:6px;
+    margin:0;
+    
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#363636),
+		to(#141414));
+	border: 1px solid #141414;
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 1px rgba(255,255,255,0.7);
+}
+content{
+    display:block;
+    width:100%;
+    height:500px;
+    padding:6px;
+}
+input{
+    color:#FFF;
+    background-color:#000;
+    border:1px #333 solid;
+}
+input::selection {
+	background: #ffb7b7; /* Safari */
+	}
+#chat_input{
+    width:100%;
+    padding-left: 15px;
+}
+
+content block.scroll{
+    height:100%;
+    overflow-y:scroll;
+}
+chat{
+    display:block; 
+    width:100%;
+}
+button{
+    cursor:pointer;
+	color: #ffffff;
+	padding: 5px 10px;
+	background: #000;
+    border:0;
+    border-radius:4px;
+    -webkit-transition: background-color 0.3s ease-in-out;
+}
+
+button:hover{
+	background: #555;
+}
+button.icon{
+    width: 16px; 
+    height: 16px;
+}
+
+chat message{
+    display:block;
+}
+chat notice{
+    display:block;
+    color:#AC9;
+    text-shadow: rgba(255, 120, 50, 1) 0 0 6
+}
+</style>
+<link type="text/css" href="../Shared/css/global.css" rel="stylesheet" />	
+<script type="text/javascript" src="../Shared/js/jquery-1.7.1.min.js"></script>
+
+<script>
+function resize(){
+    $('content').height($(window).height()-105);
+    $('chat').parent().animate({scrollTop:$('chat').height()},500);
+}
+function sendChat(force){
+    var element=$('#chat_input');
+    if (force || event.keyCode == 13) {
+        if (element.val().length>1){
+            Client.SendMessage(element.val());
+        }
+        element.val('');
+    }
+}
+function addChat(name,uid,text){
+    var d = new Date();
+    var time = d.getHours() + ':' + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+    $('chat').append('<message>['+time+'] <b>'+name+'</b>'+' : '+text+'</message>');
+    $('chat').parent().animate({scrollTop:$('chat').height()},500);
+}
+function addNotice(name,uid,text){
+    var d = new Date();
+    var time = d.getHours() + ':' + (d.getMinutes() < 10 ? '0' : '') + d.getMinutes();
+    $('chat').append('<notice>['+time+'] '+name+'</notice>');
+    $('chat').parent().animate({scrollTop:$('chat').height()},500);
+}
+
+$(function(){
+    $(window).resize(resize);
+    resize();
+    //for (i=0;i<=100;i++) addChat("PLAYER",0,"test #"+i);
+});
+
+</script>
+</head>
+<body>
+    <header>
+        <block>
+            <input type="text" maxlength="20" dir="ltr"/><button>CONNECT</button> | <button>HOST</button> | <button>QUIT</button>
+        </block>
+    </header>
+    <content>
+        <block class='scroll'><chat></chat></block>
+    </content>
+    <div style="position:absolute;bottom:0;width:100%;padding:6px;">
+        <block>
+            <span class="ui-icon ui-icon-comment input-icon-left"></span><input type="text" id="chat_input" onkeydown="sendChat(false)"/>
+        </block>
+    </div>
+<body>

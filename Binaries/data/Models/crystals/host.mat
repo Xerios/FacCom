@@ -1,0 +1,11 @@
+{
+  "technique": "MineralInstanced",
+  "mode": 1,
+  "textures": [
+    "Diffuse.JPG",
+    "Normals.JPG",
+    "reflection2.png"
+  ],
+  "color": "1, 0, 0, 1",
+  "delta": 0
+}

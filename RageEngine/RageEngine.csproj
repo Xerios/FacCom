@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{93716298-9FA4-4002-AE0B-4C9F4705CCEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RageEngine</RootNamespace>
+    <AssemblyName>RageEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\__DEBUG\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Awesomium.Core, Version=1.7.0.5, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\Awesomium\Awesomium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\SharpDX\Standard-net40\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.D3DCompiler, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\SharpDX\Standard-net40\SharpDX.D3DCompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\SharpDX\Standard-net40\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\SharpDX\Standard-net40\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.RawInput, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libs\SharpDX\Standard-net40\SharpDX.RawInput.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Debug\DebugPerfMonitor.cs" />
+    <Compile Include="Graphics\General\Camera.cs" />
+    <Compile Include="Graphics\General\CameraHelper.cs" />
+    <Compile Include="Graphics\General\Display.cs" />
+    <Compile Include="DXControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Graphics\2D\Camera2D.cs" />
+    <Compile Include="ContentPipeline\Font2D.cs" />
+    <Compile Include="Debug\Console\GameConsole.cs" />
+    <Compile Include="Debug\Console\GameConsoleItem.cs" />
+    <Compile Include="Debug\ErrorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debug\ErrorBox.designer.cs">
+      <DependentUpon>ErrorBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Debug\Logger.cs" />
+    <Compile Include="Graphics\2D\FontManager.cs" />
+    <Compile Include="Graphics\2D\FontRenderer.cs" />
+    <Compile Include="Graphics\2D\GUI\Element.cs" />
+    <Compile Include="Graphics\2D\GUI\GuiManager.cs" />
+    <Compile Include="Graphics\2D\QuadRenderer.cs" />
+    <Compile Include="Graphics\General\GlobalConstant.cs" />
+    <Compile Include="Graphics\General\Renderable.cs" />
+    <Compile Include="Graphics\General\SceneManager.cs" />
+    <Compile Include="Graphics\General\Material.cs" />
+    <Compile Include="Graphics\General\VertexBufferBatch.cs" />
+    <Compile Include="LQDB\IProximityDatabase.cs" />
+    <Compile Include="LQDB\ITokenForProximityDatabase.cs" />
+    <Compile Include="LQDB\LocalityQueryDatabase.cs" />
+    <Compile Include="LQDB\LocalityQueryProximityDatabase.cs" />
+    <Compile Include="RawFiles\RawMaterial.cs" />
+    <Compile Include="Rendering\DotManager.cs" />
+    <Compile Include="Rendering\LineManager.cs" />
+    <Compile Include="Rendering\Terrain\DecalManager.cs" />
+    <Compile Include="Rendering\Terrain\StaticDecal.cs" />
+    <Compile Include="Rendering\Terrain\TerrainDebug.cs" />
+    <Compile Include="Rendering\Terrain\TerrainInfo.cs" />
+    <Compile Include="Rendering\Terrain\Terrain.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Graphics\General\BatchCollection.cs" />
+    <Compile Include="Graphics\General\GraphicsManager.cs" />
+    <Compile Include="Graphics\General\Declarations.cs" />
+    <Compile Include="Graphics\General\DeviceStates.cs" />
+    <Compile Include="Graphics\2D\ScreenShot.cs" />
+    <Compile Include="Graphics\General\Texture.cs" />
+    <Compile Include="Graphics\General\ShaderManager.cs" />
+    <Compile Include="Input\Input.cs" />
+    <Compile Include="Input\TextInput.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ContentPipeline\AngelCodeFontLoader.cs" />
+    <Compile Include="ContentPipeline\Resources.cs" />
+    <Compile Include="RawFiles\RawVertex.cs" />
+    <Compile Include="Rendering\Terrain\TerrainPicker.cs" />
+    <Compile Include="Rendering\Terrain\TerrainWater.cs" />
+    <Compile Include="Rendering\WebWindow.cs" />
+    <Compile Include="Screens\ScreenLayer.cs" />
+    <Compile Include="Screens\Screen.cs" />
+    <Compile Include="Screens\ScreenManager.cs" />
+    <Compile Include="Utils\FixedPoint\FInt.cs" />
+    <Compile Include="Utils\FixedPoint\FMath.cs" />
+    <Compile Include="Utils\FixedPoint\FVector2.cs" />
+    <Compile Include="Utils\FixedPoint\FVector3.cs" />
+    <Compile Include="Utils\FixedPoint\IntVector3.cs" />
+    <Compile Include="Utils\SJSON.cs" />
+    <Compile Include="Timer.cs" />
+    <Compile Include="Utils\CircularList.cs" />
+    <Compile Include="Utils\Point3D.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\GameUtils.cs" />
+    <Compile Include="Utils\PathHandling.cs" />
+    <Compile Include="Utils\Point2D.cs" />
+    <Compile Include="Utils\Scripting.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Debug\ErrorBox.resx">
+      <DependentUpon>ErrorBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

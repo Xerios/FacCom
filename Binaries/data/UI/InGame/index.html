@@ -1,0 +1,146 @@
+<head>
+<style>
+body{ 
+    cursor: default;
+    font-family: Helvetica, "MS Trebuchet", sans-serif;
+    color: white;
+    
+    background:transparent; 
+    margin:0px;
+    padding:0px;
+}
+content{
+    position:absolute;
+    right:0;
+    display:block;
+    width:200px;
+    height:100%;
+    padding:6px;
+    background: rgba(0,0,0,0.5);
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+
+build{
+    display: block;
+    width: 70px;
+    height: 63px; 
+    background: url(buildButton.png) no-repeat; 
+    cursor:pointer;
+	color: #ffffff;
+	padding: 5px 10px;
+    -webkit-transition: margin-left 0.1s ease-in-out;
+}
+
+build:hover{
+	margin-left: -10px;
+}
+
+build:active{
+	margin-left: -5px;
+}
+
+info{
+    position:absolute;
+    display:block;
+}
+powerBar{
+    display:block;
+    position:relative;
+    width:10px;
+    height:100%;
+    background:#FFF;
+    float:left;
+}
+builds{
+    position:relative;
+    display:block;
+    width:70px;
+    height:100%;
+    padding-top: 50px;
+    float:right;
+}
+globalBuilds{
+    display:block;
+    width:70px;
+    height:100%;
+    padding-top: 50px;
+    float:right;
+}
+</style>
+<link type="text/css" href="../Shared/css/global.css" rel="stylesheet" />
+
+<script>
+var Debug = true;
+var App = {},Remote = {};
+
+document.addEventListener('DOMContentLoaded', function () {
+	if (Debug){
+		addGlobalBuild(1,"ONE",4632,1000);
+		addGlobalBuild(2,"TWO",785,122);
+		addGlobalBuild(3,"THREE",137,122);
+		addGlobalBuild(4,"FOUR",245,12);
+		addGlobalBuild(5,"FIVE",43,45);
+		addGlobalBuild(6,"SIX",654,32);
+		addGlobalBuild(7,"SEVEN",45,20);
+		
+		addBuild(1,"UNIT ONE",4632,1000);
+		addBuild(2,"UNIT TWO",785,122);
+		addBuild(3,"UNIT THREE",137,122);
+		
+		updateInfo(1000,20,60);
+	}
+});
+
+var credits=0;
+var powerUsed=0;
+var powerMax=0;
+
+function updateInfo(cred,pow,powMax){
+    if (credits!=cred || powerUsed != pow || powerMax != powMax){
+        credits = cred;
+        powerUsed = pow;
+        powerMax = powMax;
+        document.querySelector('info').innerHTML = 'Credits:'+credits+'<br>Power:'+powerUsed+'/'+powerMax+'<br>';
+    }
+}
+
+function clearGlobalBuilds(){
+    document.querySelector('globalBuilds').innerHTML = '';
+}
+function addGlobalBuild(id,text,img,cost,time){
+    var element = document.createElement('build');
+    element.innerHTML = text;
+    element.addEventListener('click', function() {
+        App.GlobalBuildClick(id);
+    });
+	
+	document.querySelector('globalBuilds').appendChild(element);
+}
+
+function clearBuilds(){
+    $('builds').html('');
+}
+function addBuild(id,text,img,cost,time){
+    var element = document.createElement('build');
+    element.innerHTML = text;
+    element.addEventListener('click', function() {
+        App.BuildClick(id);
+    })
+	document.querySelector('builds').appendChild(element);
+}
+
+</script>
+</head>
+<body>
+    <content>
+        <info>
+            N/A
+        </info>
+        <builds>
+        </builds>
+        <globalBuilds>
+        </globalBuilds>
+    </content>
+<body>

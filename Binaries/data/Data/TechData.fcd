@@ -1,0 +1,14 @@
+techs = [
+{
+	title = "Engineer"
+	class = "Engy"
+	cost_per_tick = 5
+	time_to_build = 100
+},
+{
+	title = "Build Center"
+	class = "BuildCenter"
+	cost_per_tick = 5
+	time_to_build = 100
+}
+]

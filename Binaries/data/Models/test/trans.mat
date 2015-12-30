@@ -1,0 +1,9 @@
+{
+  "technique": "Default",
+  "mode": 1,
+  "textures": [
+    "test.jpg"
+  ],
+  "color": "1, 1, 0, 1",
+  "delta": 0
+}
