@@ -1,6 +1,6 @@
 Faction Command RTS project
 =============
-Abandonned SharpDX port of my old real-time strategy project.
+Abandoned SharpDX port of my old real-time strategy project.
 
 I've lost many sources, and this one was a port of my RTS game and engine made in DirectX9.
 Unfortunately, I never completed this port, but you're free to check the source code out and learn a thing or two.
